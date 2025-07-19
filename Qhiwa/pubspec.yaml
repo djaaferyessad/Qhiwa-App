@@ -25,6 +25,10 @@ dependencies:
   # Loading animations
   flutter_spinkit: ^5.2.1
 
+  #get
+  get: ^4.7.2
+  
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

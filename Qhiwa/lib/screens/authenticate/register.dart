@@ -1,5 +1,6 @@
 
 import 'package:first_test/services/auth.dart';
+import 'package:first_test/services/changeScreen.dart';
 import 'package:first_test/shared/constant.dart';
 import 'package:first_test/shared/loading.dart';
 import 'package:flutter/material.dart' ;
@@ -31,18 +32,7 @@ final _formkey = GlobalKey<FormState>();
     return loading ? Loading() : Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: Colors.brown[100],
-      appBar: AppBar( 
-        backgroundColor: Colors.brown[400],
-        elevation: 0,
-        title: Text(
-          "Sign Up to 9hiwa",
-          style: TextStyle( 
-            color: Colors.white ,
-            fontWeight: FontWeight.bold,
-          ),
-          
-          ),
-      ),
+      appBar: QhiwaAppBar(text: "Sign up" ,CenterTitle:  false),
       body:  Container( 
         padding: EdgeInsets.symmetric(vertical: 20 ,horizontal: 50),
         child: SingleChildScrollView(
@@ -84,8 +74,8 @@ final _formkey = GlobalKey<FormState>();
                   },
                 ) ,
                 SizedBox(height: 20,),
-                ElevatedButton(
-                  onPressed: () async {
+                QhiwaElevatedButton(
+                    onPressed:() async {
                     if(_formkey.currentState!.validate())
                       {
                         setState(() {
@@ -102,24 +92,29 @@ final _formkey = GlobalKey<FormState>();
                         
                         }
                       }
-                    
-              
-                  }, 
-                  style: ElevatedButton.styleFrom( 
-                    backgroundColor: Colors.brown[400],
-                  ),
-                  child: Text( 
-                    'Sign Up', 
-                    style: TextStyle( 
-                      color: Colors.white,
-                    ),
-                  
-                  ),   
-                  ), 
-                  TextButton.icon(onPressed: () { 
+                    },
+                    text: "Sign Up",
+
+                      ),
+   
+                  TextButton(onPressed: () { 
                    widget.toggelView();
                   },
-                   label: Text("Sign in"),
+                   child: Text("Sign in"  ,
+                   style: TextStyle( 
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                   ),
+                   ),
+              
+                   ),
+                TextButton.icon(onPressed: () { 
+                   QhiwaChanger(RouteName:  'RestPassword').changeroute(context);
+                  },
+                   label: Text("Forgot Password !" , style: TextStyle( 
+                    color: Colors.brown,
+                    
+                   ), ),
               
                    ),
                    SizedBox(height: 12,) ,

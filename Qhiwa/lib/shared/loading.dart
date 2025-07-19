@@ -1,3 +1,4 @@
+import 'package:first_test/constants/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart' ;
 
@@ -12,10 +13,10 @@ class _LoadingState extends State<Loading> {
   @override
   Widget build(BuildContext context) {
     return Container( 
-      color: Colors.brown, 
+      color: QhiwaConstants.primaryColor, 
       child: Center(
         child: SpinKitFadingFour( 
-          color: Colors.white,
+          color: QhiwaConstants.loadingSpinColor,
         ),
       ),
     );

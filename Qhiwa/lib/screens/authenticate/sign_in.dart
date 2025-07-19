@@ -1,12 +1,13 @@
 
 import 'package:first_test/services/auth.dart';
+import 'package:first_test/services/changeScreen.dart';
 import 'package:first_test/shared/constant.dart';
 import 'package:first_test/shared/loading.dart';
 import 'package:flutter/material.dart' ;
 
 class Signin extends StatefulWidget {
-  final Function toggelView ;
-  const Signin({super.key ,required this.toggelView});
+   final Function toggelView ;
+  const Signin({super.key , required this.toggelView});
 
   @override
   State<Signin> createState() => _SigninState();
@@ -25,18 +26,7 @@ final _formkey = GlobalKey<FormState>() ;
   Widget build(BuildContext context) {
     return loading ? Loading() :  Scaffold(
       backgroundColor: Colors.brown[100],
-      appBar: AppBar( 
-        backgroundColor: Colors.brown[400],
-        elevation: 0,
-        title: Text(
-          "Sign In to 9hiwa",
-          style: TextStyle( 
-            color: Colors.white ,
-            fontWeight: FontWeight.bold,
-          ),
-          
-          ),
-      ),
+      appBar: QhiwaAppBar(text: "Sign up" ,CenterTitle:  false),
       body:  Container( 
         padding: EdgeInsets.symmetric(vertical: 20 ,horizontal: 50),
         child: SingleChildScrollView(
@@ -101,12 +91,25 @@ final _formkey = GlobalKey<FormState>() ;
                   SizedBox( 
                     height: 5,
                   ), 
-                  TextButton.icon(onPressed: (){ 
-                      widget.toggelView();
+                  TextButton(onPressed: () { 
+                   widget.toggelView();
                   },
-                   label: Text("Register"),
-                   
-                   ), 
+                   child: Text("Sign up"  ,
+                   style: TextStyle( 
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                   ),
+                   ),
+              
+                   ),
+                TextButton.icon(onPressed: () { 
+                   QhiwaChanger(RouteName:  'RestPassword').changeroute(context);
+                  },
+                   label: Text("Forgot Password !" , style: TextStyle( 
+                    color: Colors.brown,
+                    
+                   ), ),),
+
                    SizedBox(height: 12,) ,
                    Text(
                     error ,

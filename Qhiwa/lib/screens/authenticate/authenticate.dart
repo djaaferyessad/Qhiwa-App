@@ -9,8 +9,10 @@ class Authenticate extends StatefulWidget {
   State<Authenticate> createState() => _AuthenticateState();
 }
 
+
 class _AuthenticateState extends State<Authenticate> {
       bool SignInform = true ;
+      String view = '' ;
       void toggelview()
       {
       setState(() {
@@ -28,5 +30,6 @@ class _AuthenticateState extends State<Authenticate> {
     {
       return register(toggelView: toggelview);
     }
+
   }
 }
